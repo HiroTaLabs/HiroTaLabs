@@ -62,5 +62,5 @@
 
 ## 📫 ارتباط و اهداف
 
-* 📧 **ایمیل:** [your-email@example.com](mailto:your-email@example.com)
+* 📧 **ایمیل:** [hirotalabs@gmail.com](mailto:hirotalabs@gmail.com)
 * 🎯 **چشم‌انداز:** ساخت سیستم‌های در سطح پروداکشن، توسعه مهارت‌های قوی در مهندسی بک‌اند و تبدیل HiroTaLabs به یک برند شناخته‌شده در دنیای توسعه‌دهندگان.
