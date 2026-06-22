@@ -62,6 +62,3 @@
 * 📧 **Email:** [hirotalabs@gmail.com](mailto:hirotalabs@gmail.com)
 * 🎯 **Vision:** Build production-level systems, develop strong backend engineering skills, and evolve HiroTaLabs into a recognizable developer brand.
 
----
-### 📊 My Coding Activity
-![Wakatime](https://wakatime.com/share/@HiroTaLabs/836173b9-a233-4f9e-8a2a-718228114421.svg) 
