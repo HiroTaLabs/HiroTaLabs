@@ -59,5 +59,5 @@
 
 ## 📫 Contact & Goals
 
-* 📧 **Email:** [your-email@example.com](mailto:your-email@example.com)
+* 📧 **Email:** [hirotalabs@gmail.com](mailto:hirotalabs@gmail.com)
 * 🎯 **Vision:** Build production-level systems, develop strong backend engineering skills, and evolve HiroTaLabs into a recognizable developer brand.
