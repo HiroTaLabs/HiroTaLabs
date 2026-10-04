@@ -90,10 +90,6 @@ A decoupled web system built around:
 - Administrative structures
 - Relational database architecture
 
-### 🤖 Telegram Bot Systems
-
-Developing interactive Telegram-based systems focused on automation, user interaction, and practical workflows.
-
 ### 🌐 Personal Portfolio
 
 A personal portfolio and digital home for **HiroTaLabs**, designed to showcase projects, experiments, and technical growth.
@@ -120,14 +116,6 @@ A personal portfolio and digital home for **HiroTaLabs**, designed to showcase p
 </p>
 
 > My contribution activity is visualized through an automatically generated contribution snake.
-
----
-
-## 📊 GitHub Activity
-
-GitHub can display activity from private repositories anonymously when **Private contributions** is enabled in the profile contribution settings.
-
-This allows the contribution graph to reflect more of the work behind HiroTaLabs without exposing private repository names or details.
 
 ---
 
