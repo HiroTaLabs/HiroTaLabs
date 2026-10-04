@@ -31,7 +31,17 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
-      - name: Publish generated SVGs to output branch
+      - name: Save generated files
+        run: |
+          set -e
+
+          rm -rf /tmp/snake-output
+          mkdir -p /tmp/snake-output
+
+          cp dist/github-snake.svg /tmp/snake-output/
+          cp dist/github-snake-dark.svg /tmp/snake-output/
+
+      - name: Publish to output branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -40,23 +50,24 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          rm -rf /tmp/snake-output
-          mkdir -p /tmp/snake-output
-          cp -R dist/. /tmp/snake-output/
+          git fetch origin
 
-          if git ls-remote --exit-code --heads origin output >/dev/null 2>&1; then
-            git fetch origin output
-            git switch --create output --track origin/output
+          if git show-ref --verify --quiet refs/remotes/origin/output; then
+            git checkout -B output origin/output
           else
-            git switch --orphan output
+            git checkout --orphan output
+            git rm -rf . --ignore-unmatch
           fi
 
           git rm -rf . --ignore-unmatch
+          rm -rf .gitignore
 
-          cp -R /tmp/snake-output/. .
+          cp /tmp/snake-output/github-snake.svg .
+          cp /tmp/snake-output/github-snake-dark.svg .
+
           touch .nojekyll
 
-          git add -A
+          git add github-snake.svg github-snake-dark.svg .nojekyll
 
           if git diff --cached --quiet; then
             echo "No changes to publish."
