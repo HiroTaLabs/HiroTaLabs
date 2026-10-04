@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Checkout profile repository
+      - name: Checkout repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
@@ -35,7 +35,6 @@ jobs:
         run: |
           set -e
 
-          rm -rf /tmp/snake-output
           mkdir -p /tmp/snake-output
 
           cp dist/github-snake.svg /tmp/snake-output/
@@ -50,28 +49,34 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git fetch origin
+          rm -rf /tmp/output-branch
 
-          if git show-ref --verify --quiet refs/remotes/origin/output; then
-            git checkout -B output origin/output
+          if git ls-remote --exit-code --heads origin output >/dev/null 2>&1; then
+            git fetch origin output
+            git worktree add /tmp/output-branch origin/output
           else
+            git worktree add --detach /tmp/output-branch
+            cd /tmp/output-branch
+
             git checkout --orphan output
             git rm -rf . --ignore-unmatch
           fi
 
-          git rm -rf . --ignore-unmatch
-          rm -rf .gitignore
+          cd /tmp/output-branch
+
+          rm -rf ./*
+          rm -rf ./.??* 2>/dev/null || true
 
           cp /tmp/snake-output/github-snake.svg .
           cp /tmp/snake-output/github-snake-dark.svg .
 
           touch .nojekyll
 
-          git add github-snake.svg github-snake-dark.svg .nojekyll
+          git add -A
 
           if git diff --cached --quiet; then
             echo "No changes to publish."
           else
             git commit -m "chore: update contribution snake"
-            git push origin output
+            git push origin HEAD:output
           fi
