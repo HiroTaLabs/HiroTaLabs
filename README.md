@@ -1,4 +1,4 @@
-🌐 **[English]** | **[فارسی](README.fa.md)**
+**🌐 **[English]** | **[فارسی](README.fa.md)**
 ---
 
 # 🚀 HiroTaLabs
@@ -65,3 +65,4 @@
 * 📧 **Email:** [hirotalabs@gmail.com](mailto:hirotalabs@gmail.com)
 * 🎯 **Vision:** Build production-level systems, develop strong backend engineering skills, and evolve HiroTaLabs into a recognizable developer brand.
 
+**
